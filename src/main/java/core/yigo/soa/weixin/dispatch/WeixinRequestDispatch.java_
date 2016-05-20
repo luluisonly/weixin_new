@@ -1,0 +1,22 @@
+package yigo.soa.weixin.dispatch;
+
+import com.bokesoft.thirdparty.weixin.example.flow.location.LocationFindFlowTest;
+import com.bokesoft.thirdparty.weixin.example.flow.location.LocationGoFlowTest;
+import com.bokesoft.thirdparty.weixin.example.weather.WeixinRemoteTextMessageWeatherCellHandle;
+import com.bokesoft.thirdparty.weixin.remote.extend.WeixinRemoteMessageHandleProvider;
+import com.bokesoft.thirdparty.weixin.remote.extend.WeixinRemoteMessageHandleProviderFactory;
+
+/**
+ * 微信调用YIGO在YIGO端的Dispatch
+ */
+public class WeixinRequestDispatch extends AbstractWeixinRequestDispatch {
+
+	void initWeixinConfig() {
+		WeixinRemoteMessageHandleProvider handleProvider = WeixinRemoteMessageHandleProviderFactory.getWeixinHandleProvider();
+		handleProvider.putWeixinMessageFlow("我要去", new LocationGoFlowTest());
+		handleProvider.putWeixinMessageFlow("附近", new LocationFindFlowTest());
+		handleProvider.putWeixinRemoteTextMessageCellHandle("天气", new WeixinRemoteTextMessageWeatherCellHandle());
+	}
+	
+
+}

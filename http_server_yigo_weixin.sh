@@ -1,0 +1,1 @@
+java -Xms128m -Xmx512m -cp WEB-INF/classes:WEB-INF/lib/*:WEB-INF/lib/@deprecated/* start.StartWeixinHttpServer %CD%

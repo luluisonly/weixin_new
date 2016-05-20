@@ -1,0 +1,26 @@
+package com.bokesoft.thirdparty.weixin.bean;
+
+import com.bokesoft.thirdparty.weixin.service.WeixinMessageActionHandle;
+
+public class WeixinBusinessActionGroup {
+
+	private WeixinMessageActionHandle[] businessActions;
+
+	private String name;
+
+	public WeixinMessageActionHandle[] getBusinessActions() {
+		return businessActions;
+	}
+
+	public void setBusinessActions(WeixinMessageActionHandle[] businessActions) {
+		this.businessActions = businessActions;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+}

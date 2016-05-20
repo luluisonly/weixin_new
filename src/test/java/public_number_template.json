@@ -1,0 +1,51 @@
+[{
+	"uname" : "53826",
+	"action" : "update",
+	"public_Type" : "SUBSCRIPTION",
+	"grant_type" : "client_credential",
+	"secret" : "0b08317dbe143291862e162f0c6fb08e",
+	"app_id" : "wx73d1d82341c7e1ff",
+	"updateKeywordsReply" : [{
+		"serviceKey" : "眼镜",
+		"articles" : [{
+			"title" : "欢迎访问茂昌眼镜店",
+			"picUrl" : "http://180.166.22.91:6095/yigo/forward?f=weixinui_download_image&__path=53826/message/reply/gucci.jpg",
+			"description" : "",
+			"url" : "http://180.166.22.91:6095/yigo/CPP/CPP_storeindex.jsp?corpid_p=53826"
+		}],
+		"msgType" : "news"
+	}, {
+		"serviceKey" : "远程文本http",
+		"remoteType" : "http",
+		"msgType" : "remote_text",
+		"url" : "http://us1:8300/yigo/_test.do"
+	}, {
+		"serviceKey" : "远程文本yigo",
+		"remoteType" : "yigo",
+		"msgType" : "remote_text",
+		"url" : "http://ps1:8089/yigo"
+	}, {
+		"serviceKey" : "本地测试",
+		"remoteType" : "local",
+		"msgType" : "remote_text",
+		"url" : ""
+	}],
+	"updateDefaultReply" : {
+		"content" : "您好，服务器正在升级，暂时无法提供服务，十分抱歉。",
+		"msgType" : "text"
+	},
+	"updateWeixinRemoteImageMessage" : {
+		"remoteType" : "http",
+		"msgType" : "remote_image",
+		"url" : "http://us1:8300/yigo/_test.do"
+	},
+	"updateWeixinRemoteLocationMessage" : {
+		"remoteType" : "http",
+		"msgType" : "remote_location",
+		"url" : "http://us1:8300/yigo/_test.do"
+	},
+	"updateSubscribeReply" : {
+		"content" : "你好,我是机器人",
+		"msgType" : "text"
+	}
+}]

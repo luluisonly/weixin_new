@@ -1,0 +1,49 @@
+package com.bokesoft.thirdparty.weixin.bean.message;
+
+import com.bokesoft.thirdparty.weixin.service.WeixinMessageHandle;
+import com.bokesoft.thirdparty.weixin.session.WeixinSession;
+
+public class WeixinRemoteEventMessage extends BasicWeixinRemoteMessage implements 
+		WeixinRemoteMessage,WeixinMessage {
+	private static final long serialVersionUID = 3037213634853548843L;
+
+	private String event;
+
+	private String eventKey;
+
+	public String getEvent() {
+		return event;
+	}
+
+	public WeixinRemoteEventMessage() {
+		this.setMsgType(REMOTE_EVENT);
+	}
+
+	public void setEvent(String event) {
+		this.event = event;
+	}
+
+	public String getEventKey() {
+		return eventKey;
+	}
+
+	public void setEventKey(String eventKey) {
+		this.eventKey = eventKey;
+	}
+
+	public WeixinMessage doService(WeixinSession session, WeixinMessageHandle messageHandle)
+			throws Exception {
+		return messageHandle.handleWeixinRemoteEventMessage(session, this);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T extends WeixinMessage> T copyMessage() {
+		WeixinRemoteEventMessage message = new WeixinRemoteEventMessage();
+		message.setEvent(this.event);
+		message.setEventKey(this.eventKey);
+		message.setUrl(getUrl());
+		message.setRemoteType(getRemoteType());
+		return (T)message;
+	}
+
+}

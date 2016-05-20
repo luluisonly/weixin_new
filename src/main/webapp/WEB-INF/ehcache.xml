@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" updateCheck="false">
+ 
+    <!-- diskStore path="D:\\javacache" / --> 
+    <diskStore path="java.io.tmpdir"/>
+     
+    <defaultCache  
+        maxElementsInMemory="20000"  
+        eternal="false" 
+        timeToIdleSeconds="1200"  
+        timeToLiveSeconds="1200"  
+        diskExpiryThreadIntervalSeconds="1200" 
+        diskPersistent="false"
+        overflowToDisk="true"
+        memoryStoreEvictionPolicy="LRU"  
+    /> 
+         
+    <cache name="sample"          
+        maxElementsInMemory="10"   
+        maxElementsOnDisk = "5"  
+        eternal="false"   
+        diskPersistent="false"  
+        timeToIdleSeconds="1440"   
+        timeToLiveSeconds="2880"   
+        overflowToDisk="false"  
+        memoryStoreEvictionPolicy="FIFO"  
+        statistics="true"  
+    /> 
+    
+    <cache name="uservar"          
+        maxElementsInMemory="1000"   
+        maxElementsOnDisk = "1000"  
+        eternal="false"   
+        diskPersistent="true"  
+        diskExpiryThreadIntervalSeconds="1200" 
+        timeToIdleSeconds="1200"   
+        timeToLiveSeconds="2400"   
+        overflowToDisk="true"  
+        memoryStoreEvictionPolicy="LRU"  
+        statistics="true"  
+    /> 
+ 
+</ehcache> 

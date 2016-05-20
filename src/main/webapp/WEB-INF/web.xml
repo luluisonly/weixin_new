@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<listener>
+		<listener-class>com.zaofans.weixin.ContextListener</listener-class>
+	</listener>
+	
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>com.bokesoft.thirdparty.weixin.common.CorsFilter</filter-class>
+		<init-param>
+			<param-name>cors.allowed.origins</param-name>
+			<param-value>*</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- weixin -->
+	<servlet>
+		<servlet-name>weixin</servlet-name>
+		<servlet-class>com.bokesoft.thirdparty.weixin.WeixinServlet</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>weixin</servlet-name>
+		<url-pattern>/weixin</url-pattern>
+	</servlet-mapping>
+
+	<!-- open api -->
+	<servlet>
+		<servlet-name>open-api</servlet-name>
+		<servlet-class>com.bokesoft.thirdparty.weixin.open.WeixinSOAServletDispatch</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>open-api</servlet-name>
+		<url-pattern>/open-api</url-pattern>
+	</servlet-mapping>
+	
+	<!-- dispatch -->
+	<servlet>
+		<servlet-name>srv</servlet-name>
+		<servlet-class>yigo.soa.weixin.mid.dispatch.MidSrvCore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>srv</servlet-name>
+		<url-pattern>/srv.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- weixin handle servlet -->
+	<servlet>
+		<servlet-name>m</servlet-name>
+		<servlet-class>com.bokesoft.thirdparty.model.WeixinModelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>m</servlet-name>
+		<url-pattern>/m.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- test -->
+	<servlet>
+		<servlet-name>_test</servlet-name>
+		<servlet-class>com.bokesoft.thirdparty.weixin.WeixinRemoteMessageHandleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>_test</servlet-name>
+		<url-pattern>/_test.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- pay-notify -->
+	<servlet>
+		<servlet-name>notify</servlet-name>
+		<servlet-class>com.bokesoft.thirdparty.weixin.WeixinPayNotifyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>notify</servlet-name>
+		<url-pattern>/pay-notify</url-pattern>
+	</servlet-mapping>
+	
+	<!-- pay-notify-v2 -->
+	<servlet>
+		<servlet-name>pay-notify</servlet-name>
+		<servlet-class>com.bokesoft.thirdparty.weixin.WeixinPayNotifyServletV2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pay-notify</servlet-name>
+		<url-pattern>/pay-notify-v2</url-pattern>
+	</servlet-mapping>
+	
+	<!-- pay-notify -->
+	<!--servlet>
+		<servlet-name>testPay</servlet-name>
+		<servlet-class>test.thirdparty.weixin.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>testPay</servlet-name>
+		<url-pattern>/test-pay</url-pattern>
+	</servlet-mapping-->
+	
+	<!-- welcome file -->
+
+	<welcome-file-list>
+		<welcome-file>/index.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>
